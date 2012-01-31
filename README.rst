@@ -1,6 +1,9 @@
 crawlThis
 =========
 
+crawlThis is a test site for EULAbot but could be used to test any crawler and probably for a number of other rediculous purposes. 
+https://github.com/jessebmiller/EULAbot
+
 crawlThis was built on top of Twango (which is built on top of Django) and the below is true for crawlThis...
 Take a look at the Twango project here. https://github.com/dagray/twango
 Take a look at the Django project here. https://www.djangoproject.com/
