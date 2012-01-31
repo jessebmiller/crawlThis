@@ -1,9 +1,9 @@
 crawlThis
 =========
 
-crawlThis was built on top of Twango and the below is true for crawlThis...
+crawlThis was built on top of Twango (which is built on top of Django) and the below is true for crawlThis...
 Take a look at the Twango project here. https://github.com/dagray/twango
-
+Take a look at the Django project here. https://www.djangoproject.com/
 
 Twango uses virtualenv and pip to facilitate easy and reliable setup of new projects
 Some conventions used by twango that might not be obvious to those used to django:
