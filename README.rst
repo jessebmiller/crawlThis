@@ -28,4 +28,4 @@ once the environment is active you may run the test server locally with
 
 manage.py is in src/
 
-check localhost:8000 in your browser and you should see the crawlThis test site. Its just a list of links that each to to a list of links. Exciting.
+check http://localhost:8000 in your browser and you should see the crawlThis test site. Its just a list of links that each to to a list of links. Exciting.
