@@ -12,10 +12,20 @@ To begin, Run
 
   > source bootstrap.sh
 
-This will set up your new virtual environment.  Once  
-settings files are stored in the conf/ directory
-and are loaded in alphabetical order. 
+This will install the virtual environment needed to run the crawlThis test site and activate the environment.
 
-   g_generated_app_config.py is where new apps will automatically add configuration strings, its auto-generated, so you should probably avoid touching it if you can.
+to activate the environment after the initial bootstrap run
 
-   a_base.py defines most of the basic settings that you will probably want int your project.  z_debug.py has the setting for turning debug mode on.  If you delete this file, it should disable debug mode.
+  > source env/bin/activate
+
+to leave the environment run
+
+  > deactivate
+
+once the environment is active you may run the test server locally with
+  
+  > python manage.py runserver
+
+manage.py is in src/
+
+check localhost:8000 in your browser and you should see the crawlThis test site. Its just a list of links that each to to a list of links. Exciting.
