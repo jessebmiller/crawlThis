@@ -8,7 +8,7 @@ def seedchain(seed, chain_length):
         seed = str(long(seed)*7 % 777777)
         yield seed
 
-def build_crawlable_page(page_seed=1):
+def build_crawlable_page(request, page_seed=1, abs_url=False):
     """ returns a page to return based on the page_seed """
 
     a = "<a href='%s' />%s</a>"
@@ -18,7 +18,11 @@ def build_crawlable_page(page_seed=1):
 
     html = p % ("this page has %s links" % num_links) 
 
-    for url in seedchain(page_seed, num_links):
+    for seed in seedchain(page_seed, num_links):
+        if abs_url:
+            url = request.build_absolute_uri(seed)
+        else:
+            url = seed
         html += p % (a % (url, url))
 
     return html
@@ -31,7 +35,7 @@ def index(request):
     """    
 
     page_seed = random.getrandbits(32)
-    html = build_crawlable_page(page_seed)
+    html = build_crawlable_page(request, page_seed)
 
     return HttpResponse(html)
     
@@ -46,5 +50,15 @@ def crawl_test(request, page_seed):
     that a crawl produces the same result every time
     """
     
-    return HttpResponse( page_seed + build_crawlable_page(page_seed) )
+    return HttpResponse( page_seed + build_crawlable_page(request, page_seed) )
+
+def abs_crawl_test(request, page_seed):
+    """ 
+    provides the same pages for each link every time so we can ensure
+    that a crawl produces the same result every time
+
+    uses absolute urls
+    """
+    
+    return HttpResponse( page_seed + build_crawlable_page(request, page_seed, True) )
     
